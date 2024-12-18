@@ -18,7 +18,7 @@ const[email_id,setEmail_id]=useState('')
 const[image,setImage]=useState()
 
   useEffect(()=>{
-    const  url='http://localhost:5000/schools';
+    const  url='https://reno-platform-project-8y66gq7bz-uday-pratap-yadavs-projects.vercel.app/schools';
     const fetchOptions={
       method:"GET",
       headers:{
@@ -52,7 +52,7 @@ setSearchItems(itm)
   },[search])
 
   const handleSetItem=async()=>{
-    const  url='http://localhost:5000/schools';
+    const  url='https://reno-platform-project-8y66gq7bz-uday-pratap-yadavs-projects.vercel.app/schools';
     const fetchOptions={
       method:"GET",
       headers:{
