@@ -75,7 +75,7 @@ const upload=multer({
         if(err) console.log(err);
         else {
                      const sql="insert into schools(name,address, city, state, contact, image, email_id) values(?,?,?,?,?,?,?)";
-                     connection.query(sql,[name, address,city,state, contact,str,email_id],(err,res)=>{
+                     connection.query(sql,[[name, address,city,state, contact,str,email_id]],(err,res)=>{
                      if(err)
                         {
                             console.log(err);
