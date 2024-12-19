@@ -93,7 +93,7 @@ try {
     res.status(200).send('OK');
 
 } catch (error) {
-res.send("something went wrong");    
+res.send("something went wrong"+err);    
 }
              })
      
