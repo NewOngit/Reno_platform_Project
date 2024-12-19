@@ -54,8 +54,8 @@ const upload=multer({
     storage:storage})
 
     app.post('/upload',upload.single('image'),(req,res)=>{
-
-        console.log((JSON.parse(req.body.text)));
+try {
+    console.log((JSON.parse(req.body.text)));
         const data=JSON.parse(req.body.text);
         let name=data.name;
         let address=data.address;
@@ -91,6 +91,10 @@ const upload=multer({
         }
     })
     res.status(200).send('OK');
-     })
+
+} catch (error) {
+res.send("something went wrong");    
+}
+             })
      
 app.listen(5000,console.log("server is runnning"));
