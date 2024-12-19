@@ -52,7 +52,7 @@ setSearchItems(itm)
   },[search])
 
   const handleSetItem=async()=>{
-    const  url='http://localhost:5000/schools';
+    const  url='https://reno-platform-project.vercel.app/schools';
     const fetchOptions={
       method:"GET",
       headers:{
