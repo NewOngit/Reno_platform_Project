@@ -18,7 +18,7 @@ const[email_id,setEmail_id]=useState('')
 const[image,setImage]=useState()
 
   useEffect(()=>{
-    const  url='http://localhost:5000/schools';
+    const  url='https://reno-platform-project.vercel.app/schools';
     const fetchOptions={
       method:"GET",
       headers:{

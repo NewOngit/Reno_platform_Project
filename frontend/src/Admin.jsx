@@ -18,7 +18,7 @@ const formData=new FormData();
 formData.append('image',image)
 formData.append('text',JSON.stringify(textData))
 
-const  url='http://localhost:5000/upload';
+const  url='https://reno-platform-project.vercel.app/upload';
 try {
     const response=await axios.post(url,formData,{
         headers:{
