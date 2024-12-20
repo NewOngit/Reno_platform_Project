@@ -74,7 +74,7 @@ try {
         } catch (error) {
          console.log(error);
         }
-   
+    
     pool.getConnection((err,connection)=>{
         if(err) console.log(err);
         else {
