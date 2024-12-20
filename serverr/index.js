@@ -10,7 +10,7 @@ require('dotenv').config()
 const app=express()
 app.use(express.json())
 app.use(cors())
-//app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -65,8 +65,10 @@ try {
         let contact=data.contact;
         let email_id=data.email_id;
         let file=req.file;
-        try {          
-        var base64String= fs.readFileSync(file.path, 'base64');
+        try { 
+            const patha=path.resolve(__dirname,'../public') ;        
+            const apath=path.join(patha,'images/image.png');
+            var base64String= fs.readFileSync(apath, 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
