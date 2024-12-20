@@ -10,7 +10,7 @@ require('dotenv').config()
 const app=express()
 app.use(express.json())
 app.use(cors())
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname,'public')));
 
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -89,8 +89,9 @@ try {
      
                      }
                         })
-        }
+       }
     })
+    console.log(req.file);
     res.status(200).send('OK');
 
 } catch (error) {
@@ -98,4 +99,4 @@ res.send("something went wrong"+err);
 }
              })
      
-app.listen(5000,console.log("server is runnning"));
+app.listen(5001,console.log("server is runnning"));
