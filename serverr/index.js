@@ -14,8 +14,8 @@ app.use(cors())
 //const filepath=path.join("/temp")
 //app.use(express.static(path.join(__dirname,'public')));
 //app.use('temp', express.static(path.join(__dirname, `../../tmp/`)));
-app.use(express.static(__dirname + '/tmp'));
-app.use('/tmp', express.static('tmp'));
+//app.use(express.static(__dirname + '/tmp'));
+//app.use('/tmp', express.static('tmp'));
 const pool =sql.createPool({
     host:process.env.DB_HOST,
     user: process.env.DB_USERNAME,
