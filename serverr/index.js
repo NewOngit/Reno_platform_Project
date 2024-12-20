@@ -67,8 +67,8 @@ try {
         let email_id=data.email_id;
         let file=req.file;
         try { 
-            //const patha=path.resolve(__dirname,'../public') ;        
-            const apath=path.join(process.cwd(),'public/images/image.png');
+            //const patha=path.resolve(__dirname,'../public');        
+            //const apath=path.join(process.cwd(),'public/images/image.png');
             var base64String= fs.readFileSync(file.path, 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
