@@ -11,7 +11,7 @@ require('dotenv').config()
 const app=express()
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.join(process.cwd(),'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -69,7 +69,7 @@ try {
         try { 
             //const patha=path.resolve(__dirname,'../public') ;        
             const apath=path.join(process.cwd(),'public/images/image.png');
-            var base64String= fs.readFileSync(apath, 'base64');
+            var base64String= fs.readFileSync("https://reno-platform-project.vercel.app/images/image.png", 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
