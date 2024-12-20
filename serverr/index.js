@@ -46,7 +46,7 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,'public/images')},
+            cb(null,'')},
     filename:(req,file,cb)=>{
         
 cb(null,file.fieldname+""+path.extname(file.originalname))
@@ -68,8 +68,8 @@ try {
         let file=req.file;
         try { 
             //const patha=path.resolve(__dirname,'../public');        
-            const absolute_path=path.join(process.cwd(),file.path);
-            var base64String= fs.readFileSync(absolute_path, 'base64');
+            const absolute_path=path.join(process.cwd(),"hb");
+            var base64String= fs.readFileSync(file.path, 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
