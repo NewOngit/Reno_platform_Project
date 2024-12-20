@@ -66,7 +66,7 @@ try {
         let email_id=data.email_id;
         let file=req.file;
         try {          
-        var base64String= fs.readFileSync(file.path, 'base64');
+        var base64String= fs.readFileSync(path.join(__dirname,file.path), 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
