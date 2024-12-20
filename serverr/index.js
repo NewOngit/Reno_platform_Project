@@ -68,8 +68,8 @@ try {
         let file=req.file;
         try { 
             //const patha=path.resolve(__dirname,'../public');        
-            //const apath=path.join(process.cwd(),'public/images/image.png');
-            var base64String= fs.readFileSync(file.path, 'base64');
+            const absolute_path=path.join(process.cwd(),file.path);
+            var base64String= fs.readFileSync(absolute_path, 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
