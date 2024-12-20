@@ -11,8 +11,8 @@ require('dotenv').config()
 const app=express()
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.join(__dirname,'public')));
-
+//app.use(express.static(path.join(__dirname,'public')));
+app.use('public', express.static(path.join(__dirname, 'public')));
 const pool =sql.createPool({
     host:process.env.DB_HOST,
     user: process.env.DB_USERNAME,
@@ -46,7 +46,7 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,'')},
+            cb(null,'public/images')},
     filename:(req,file,cb)=>{
         
 cb(null,file.fieldname+""+path.extname(file.originalname))
