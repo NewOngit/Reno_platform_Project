@@ -3,6 +3,7 @@ const multer=require('multer')
 const path =require('path')
 const sql=require('mysql')
 const cors=require('cors')
+const process=require('process')
 const express=require('express')
 require('dotenv').config()
 
@@ -10,7 +11,7 @@ require('dotenv').config()
 const app=express()
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(process.cwd(),'public')));
 
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -66,8 +67,8 @@ try {
         let email_id=data.email_id;
         let file=req.file;
         try { 
-            const patha=path.resolve(__dirname,'../public') ;        
-            const apath=path.join(patha,'images/image.png');
+            //const patha=path.resolve(__dirname,'../public') ;        
+            const apath=path.join(process.cwd(),'public/images/image.png');
             var base64String= fs.readFileSync(apath, 'base64');
         var str=base64String.toString('base64')
         } catch (error) {
