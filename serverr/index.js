@@ -12,7 +12,7 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 //const filepath=path.join("/temp")
-app.use('/temp',express.static(path.join(__dirname,'/temp')));
+app.use('/temp',express.static('/temp'));
 //app.use('temp', express.static(path.join(__dirname, `../../tmp/`)));
 //app.use(express.static(__dirname + '/tmp'));
 //app.use('/tmp', express.static('tmp'));
@@ -49,7 +49,7 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,path.join(__dirname,"/temp"))},
+            cb(null,"/temp")},
     filename:(req,file,cb)=>{
         
 cb(null,file.fieldname+""+path.extname(file.originalname))
