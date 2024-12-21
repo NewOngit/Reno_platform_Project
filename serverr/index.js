@@ -49,7 +49,7 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,"/temp")},
+            cb(null,"")},
     filename:(req,file,cb)=>{
         
 //cb(null,file.fieldname+""+path.extname(file.originalname))
