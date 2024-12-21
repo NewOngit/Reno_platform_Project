@@ -22,17 +22,17 @@ const  url='https://reno-platform-project.vercel.app/upload';
 try {
     const response=await axios.post(url,formData,{
         headers:{
-            'content-type':'multipart/formdata'
+            'Content-type':'multipart/formdata'
         }
     });
     if(!response.status===200) throw Error("something went wrong");
     console.log('submitted successfully');
-    
 alert("Data submitted succesfully");
 handleSetItem();
 } catch (error) {
-    console.log("grtghf");
+    console.log(error);
     alert("Something went wrong");
+    alert("unable to locate the /temp directory on vercel");
 }   
   }
     return (
