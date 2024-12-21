@@ -12,7 +12,7 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 //const filepath=path.join("/temp")
-app.use('/temp',express.static('/temp'));
+//app.use('/temp',express.static('/temp'));
 //app.use('temp', express.static(path.join(__dirname, `../../tmp/`)));
 //app.use(express.static(__dirname + '/tmp'));
 //app.use('/tmp', express.static('tmp'));
