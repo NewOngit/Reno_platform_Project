@@ -14,7 +14,7 @@ app.use(cors())
 //const filepath=path.join("/temp")
 //app.use('/temp',express.static('/temp'));
 //app.use('temp', express.static(path.join(__dirname, `../../tmp/`)));
-//app.use('public',express.static(path.join(process.cwd() , 'public')));
+app.use('public',express.static(path.join(__dirname , 'public')));
 //app.use('/tmp', express.static('tmp'));
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -49,11 +49,11 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,'/temp')},
+            cb(null,'public/images')},
     filename:(req,file,cb)=>{
         
-//cb(null,file.fieldname+""+path.extname(file.originalname))
-cb(null, 'image.png')
+cb(null,file.fieldname+`${Date.now()}`+path.extname(file.originalname))
+//cb(null, 'image.png')
 }})
 
 const upload=multer({
