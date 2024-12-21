@@ -14,7 +14,7 @@ app.use(cors())
 //const filepath=path.join("/temp")
 //app.use('/temp',express.static('/temp'));
 //app.use('temp', express.static(path.join(__dirname, `../../tmp/`)));
-//app.use(express.static(__dirname + '/tmp'));
+app.use('public',express.static(path.join(process.cwd() , 'public')));
 //app.use('/tmp', express.static('tmp'));
 const pool =sql.createPool({
     host:process.env.DB_HOST,
@@ -49,7 +49,7 @@ return res.json(data);
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
-            cb(null,"")},
+            cb(null,path.join(process.cwd(),"public/images"))},
     filename:(req,file,cb)=>{
         
 //cb(null,file.fieldname+""+path.extname(file.originalname))
@@ -73,7 +73,8 @@ try {
         try { 
             //const patha=path.resolve(__dirname,'../public');        
             const absolute_path=path.join(process.cwd(),"hb");
-            var base64String= fs.readFileSync(file.path, 'base64');
+            //var base64String= fs.readFileSync(file.path, 'base64');
+            var base64String=null;
         var str=base64String.toString('base64')
         } catch (error) {
          console.log(error);
