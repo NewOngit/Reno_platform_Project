@@ -52,7 +52,8 @@ const storage=multer.diskStorage({
             cb(null,"/temp")},
     filename:(req,file,cb)=>{
         
-cb(null,file.fieldname+""+path.extname(file.originalname))
+//cb(null,file.fieldname+""+path.extname(file.originalname))
+cb(null, 'image.png')
 }})
 
 const upload=multer({
